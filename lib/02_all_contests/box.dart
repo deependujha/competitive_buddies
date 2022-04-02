@@ -1,6 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert' as convert;
 
 class ContestBox extends StatelessWidget {
+  void func() async {
+    final response =
+        await http.get(Uri.parse('https://kontests.net/api/v1/all'));
+
+    if (response.statusCode == 200) {
+      // If the server did return a 200 OK response,
+      // then parse the JSON.
+      print(response.body);
+    } else {
+      // If the server did not return a 200 OK response,
+      // then throw an exception.
+      print("an error occurred lamde");
+    }
+  }
+
   // final String imagePath;
   // final String site;
   // final String nameOfContest;
@@ -15,6 +32,7 @@ class ContestBox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    func();
     return Container(
       margin: const EdgeInsets.all(10.0),
       height: 85.0,
