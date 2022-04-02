@@ -1,91 +1,92 @@
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
-import 'dart:convert' as convert;
 
 class ContestBox extends StatelessWidget {
-  void func() async {
-    final response =
-        await http.get(Uri.parse('https://kontests.net/api/v1/all'));
+  final String site;
+  final String nameOfContest;
+  final String startTime;
+  final String endTime;
 
-    if (response.statusCode == 200) {
-      // If the server did return a 200 OK response,
-      // then parse the JSON.
-      print(response.body);
+  ContestBox(this.site, this.nameOfContest, this.startTime, this.endTime,
+      {Key? key})
+      : super(key: key);
+
+  String siteImgPath(String site) {
+    if (site == "CodeForces" || site == "CodeForces::Gym") {
+      return 'images/codeforces.png';
+    }
+    if (site == "TopCoder") {
+      return 'images/topcoder.png';
+    }
+    if (site == "AtCoder") {
+      return 'images/atcoder.png';
+    }
+    if (site == "CS Academy") {
+      return 'images/csAcademy.png';
+    }
+    if (site == "CodeChef") {
+      return 'images/codechef.png';
+    }
+    if (site == "HackerRank") {
+      return 'images/hackerrank.png';
+    }
+    if (site == "HackerEarth") {
+      return 'images/HackerEarth_logo.png';
+    }
+    if (site == "Kick Start") {
+      return 'images/google.png';
+    }
+    if (site == "LeetCode") {
+      return 'images/leetcode.png';
     } else {
-      // If the server did not return a 200 OK response,
-      // then throw an exception.
-      print("an error occurred lamde");
+      return 'images/toph.png';
     }
   }
 
-  // final String imagePath;
-  // final String site;
-  // final String nameOfContest;
-  // final String startTime;
-  // final String endTime;
-  // final String startDate;
-  // final String endDate;
-  // const ContestBox(this.imagePath, this.site, this.nameOfContest,
-  //     this.startTime, this.endTime, this.startDate, this.endDate,
-  //     {Key? key})
-  //     : super(key: key);
-
   @override
   Widget build(BuildContext context) {
-    func();
+    String date = startTime.substring(0, 10) + " - " + endTime.substring(0, 10);
+    String time =
+        startTime.substring(11, 19) + " - " + endTime.substring(11, 19);
     return Container(
       margin: const EdgeInsets.all(10.0),
       height: 85.0,
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
           color: Color.fromARGB(255, 24, 92, 209),
           borderRadius: BorderRadius.only(
               topLeft: Radius.circular(20.0),
               bottomLeft: Radius.circular(20.0),
               bottomRight: Radius.circular(20.0))),
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          const CircleAvatar(
+          CircleAvatar(
             radius: 25.0,
             backgroundColor: Colors.white,
-            backgroundImage: AssetImage('images/codeforces.png'),
+            backgroundImage: AssetImage(siteImgPath(site)),
+          ),
+          Text(
+            site,
+            style: const TextStyle(
+                color: Color.fromARGB(255, 120, 243, 5),
+                fontWeight: FontWeight.bold,
+                fontSize: 20.0),
           ),
           Column(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               Text(
-                "Codeforces",
-                style: TextStyle(
-                    color: Color.fromARGB(255, 120, 243, 5),
+                time,
+                style: const TextStyle(
+                    color: Colors.white,
                     fontWeight: FontWeight.bold,
-                    fontSize: 20.0),
+                    fontSize: 14.0),
               ),
               Text(
-                "hellow 1gggngnnn ",
-                overflow: TextOverflow.fade,
-                style: TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.w500,
-                    fontSize: 12.0),
-              )
-            ],
-          ),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              Text(
-                "data 2",
-                style: TextStyle(
+                date,
+                style: const TextStyle(
                     color: Colors.white,
                     fontWeight: FontWeight.bold,
-                    fontSize: 17.0),
-              ),
-              Text(
-                "hellow 2",
-                style: TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 17.0),
+                    fontSize: 14.0),
               )
             ],
           )

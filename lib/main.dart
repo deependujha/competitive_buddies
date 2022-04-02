@@ -44,7 +44,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
   Widget build(BuildContext context) {
     List<Widget> pages = [
       SiteSpecific(),
-      ContestBox(),
+      AllContests(),
       LearningResources(),
       Profile()
     ];

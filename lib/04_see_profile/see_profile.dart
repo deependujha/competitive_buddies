@@ -6,7 +6,7 @@ class Profile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Center(
-      child: Text("This page will show user's profile."),
+      child: Text("Codeforces profile visualizer coming soon."),
     );
   }
 }
