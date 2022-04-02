@@ -1,5 +1,6 @@
 import 'package:competitive_buddies/01_site_specific_contests/site_specific_contest.dart';
 import 'package:competitive_buddies/02_all_contests/all_contests.dart';
+import 'package:competitive_buddies/02_all_contests/box.dart';
 import 'package:competitive_buddies/03_learning_resources/learning_resources.dart';
 import 'package:competitive_buddies/04_see_profile/see_profile.dart';
 import 'package:flutter/material.dart';
@@ -43,7 +44,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
   Widget build(BuildContext context) {
     const List<Widget> pages = [
       SiteSpecific(),
-      AllContests(),
+      ContestBox(),
       LearningResources(),
       Profile()
     ];
@@ -64,7 +65,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
             /// Likes
             SalomonBottomBarItem(
               icon: Icon(Icons.favorite_border),
-              title: Text("Likes"),
+              title: Text("All Contests"),
               selectedColor: Colors.pink,
             ),
 
