@@ -42,7 +42,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
 
   @override
   Widget build(BuildContext context) {
-    const List<Widget> pages = [
+    List<Widget> pages = [
       SiteSpecific(),
       ContestBox(),
       LearningResources(),
@@ -57,30 +57,30 @@ class _BottomNavBarState extends State<BottomNavBar> {
           items: [
             /// Home
             SalomonBottomBarItem(
-              icon: Icon(Icons.home),
-              title: Text("Home"),
-              selectedColor: Colors.purple,
+              icon: const Icon(Icons.bar_chart),
+              title: const Text("CodeForces"),
+              selectedColor: Colors.pink,
             ),
 
             /// Likes
             SalomonBottomBarItem(
-              icon: Icon(Icons.favorite_border),
-              title: Text("All Contests"),
+              icon: const Icon(Icons.laptop),
+              title: const Text("All Contests"),
               selectedColor: Colors.pink,
             ),
 
             /// Search
             SalomonBottomBarItem(
-              icon: Icon(Icons.search),
-              title: Text("Search"),
-              selectedColor: Colors.orange,
+              icon: const Icon(Icons.school),
+              title: const Text("Resources"),
+              selectedColor: Colors.pink,
             ),
 
             /// Profile
             SalomonBottomBarItem(
-              icon: Icon(Icons.person),
-              title: Text("Profile"),
-              selectedColor: Colors.teal,
+              icon: const Icon(Icons.person),
+              title: const Text("Profile"),
+              selectedColor: Colors.pink,
             ),
           ],
         ),
