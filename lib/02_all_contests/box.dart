@@ -19,7 +19,7 @@ class ContestBox extends StatelessWidget {
       margin: const EdgeInsets.all(10.0),
       height: 85.0,
       decoration: BoxDecoration(
-          color: Colors.deepPurple,
+          color: Color.fromARGB(255, 24, 92, 209),
           borderRadius: BorderRadius.only(
               topLeft: Radius.circular(20.0),
               bottomLeft: Radius.circular(20.0),
@@ -38,7 +38,7 @@ class ContestBox extends StatelessWidget {
               Text(
                 "Codeforces",
                 style: TextStyle(
-                    color: Colors.red,
+                    color: Color.fromARGB(255, 120, 243, 5),
                     fontWeight: FontWeight.bold,
                     fontSize: 20.0),
               ),
